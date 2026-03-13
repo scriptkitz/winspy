@@ -132,6 +132,8 @@
 #define IDC_EXPAND                      1070
 #define IDC_WINDOWPROC                  1070
 #define IDC_CLEAR                       1071
+#define IDC_TREE_SEARCH                 1072
+#define IDC_STATIC                      -1
 #define IDM_GENERAL_ONTOP               40003
 #define IDM_GENERAL_VISIBLE             40004
 #define IDM_GENERAL_ENABLED             40005
