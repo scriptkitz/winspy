@@ -157,13 +157,15 @@ static LRESULT CALLBACK URLCtrlProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM 
 		hdc = BeginPaint(hwnd, &ps);
 	
 		// Set the font colours
-		SetTextColor(hdc, url->crLink);
 		SetBkMode(hdc, TRANSPARENT);
+		SetTextColor(hdc, url->crLink);
 		
-		SelectObject(hdc, GetStockObject(HOLLOW_BRUSH));//GetClassLong(GetParent(hwnd), GCL_HBRBACKGROUND));
+		//SelectObject(hdc, GetStockObject(HOLLOW_BRUSH));//GetClassLong(GetParent(hwnd), GCL_HBRBACKGROUND));
 		//SetBkColor(hdc, );//GetSysColor(COLOR_3DFACE));
 		
 		hOld = SelectObject(hdc, hfUnderlined);
+
+		// FillRect(hdc, &rect, GetSysColorBrush(COLOR_3DFACE));
 
 		// find text to draw
 		nTextLen = GetWindowText(hwnd, szWinText, sizeof(szWinText) / sizeof(TCHAR));
@@ -172,7 +174,8 @@ static LRESULT CALLBACK URLCtrlProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM 
 		GetTextExtentPoint32(hdc, szWinText, nTextLen, &sz);
 
 		// Draw text + fill background at the same time
-		ExtTextOut(hdc, 0, (rect.bottom - sz.cy), 0/*ETO_OPAQUE*/, &rect, szWinText, nTextLen, 0);
+		// ExtTextOut(hdc, 0, (rect.bottom - sz.cy), 0/*ETO_OPAQUE*/, &rect, szWinText, nTextLen, 0);
+		DrawText(hdc, szWinText, nTextLen, &rect, DT_LEFT | DT_VCENTER | DT_SINGLELINE);
 		
 		SelectObject(hdc, hOld);
 		//DefWindowProc(hwnd, WM_PAINT, hdc, 0);
