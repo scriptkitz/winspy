@@ -186,6 +186,7 @@
     <ClCompile Include="DisplayPropInfo.c" />
     <ClCompile Include="DisplayScrollInfo.c" />
     <ClCompile Include="DisplayStyleInfo.c" />
+    <ClCompile Include="DisplayTreeInfo.c" />
     <ClCompile Include="DisplayWindowInfo.c" />
     <ClCompile Include="EditSize.c" />
     <ClCompile Include="EditWindow.c" />

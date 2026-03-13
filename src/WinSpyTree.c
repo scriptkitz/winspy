@@ -195,10 +195,6 @@ int IconFromClassName(TCHAR *szName, DWORD dwStyle)
 	return -1;
 }
 
-#define MAX_VERBOSE_LEN 22
-#define MAX_CLASS_LEN   40
-#define MAX_WINTEXT_LEN 200
-
 #define MIN_FORMAT_LEN  (32 + MAX_VERBOSE_LEN + MAX_CLASS_LEN + MAX_WINTEXT_LEN)
 
 //

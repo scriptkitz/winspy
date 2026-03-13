@@ -30,7 +30,8 @@
 #define IDI_ICON18                      143
 #define IDR_ACCELERATOR1                144
 #define IDD_TAB_PROCESS                 145
-#define IDR_MENU1                       146
+#define IDD_TAB_TREE                    146
+#define IDR_MENU1                       147
 #define IDR_MENU3                       149
 #define IDB_BITMAP4                     152
 #define IDB_PIN_BITMAP                  153

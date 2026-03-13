@@ -161,10 +161,10 @@ void FlashWindowBorder(HWND hwnd, BOOL fShowHidden)
 {
 	int i;
 
-	for(i = 0; i < 3 * 2; i++)
+	for(i = 0; i < 5 * 2; i++)
 	{
 		InvertWindow(hwnd, fShowHidden);
-		Sleep(100);
+		Sleep(80);
 	}
 }
 

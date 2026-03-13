@@ -61,6 +61,7 @@ DialogTab WinSpyTab[NUMTABCONTROLITEMS] =
 	0, _T("Class"),			IDD_TAB_CLASS,		ClassDlgProc,
 	0, _T("Windows"),		IDD_TAB_WINDOWS,	WindowDlgProc,
 	0, _T("Process"),		IDD_TAB_PROCESS,    ProcessDlgProc,
+	0, _T("Tree"),          IDD_TAB_TREE,       TreeDlgProc,
 };
 
 static int nCurrentTab = 0;
@@ -145,6 +146,9 @@ void DisplayWindowInfo(HWND hwnd)
 	SetWindowInfo(hwnd);
 	SetScrollbarInfo(hwnd);
 	SetProcessInfo(hwnd);
+
+	if (nCurrentTab == TREE_TAB)
+		SetTreeInfo(hwnd);
 }
 
 //
@@ -609,6 +613,11 @@ UINT WinSpyDlg_NotifyHandler(HWND hwnd, WPARAM wParam, NMHDR *hdr)
 		{
 			GetRemoteInfo(spy_hCurWnd);
 			SetClassInfo(spy_hCurWnd);
+		}
+
+		if (nCurrentTab == TREE_TAB)
+		{
+			SetTreeInfo(spy_hCurWnd);
 		}
 		
 		return TRUE;

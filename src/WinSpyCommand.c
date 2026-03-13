@@ -175,16 +175,22 @@ UINT WinSpyDlg_CommandHandler(HWND hwnd, WPARAM wParam, LPARAM lParam)
 		
 	case IDC_FLASH:
 
-		hwndTree = GetDlgItem(hwnd, IDC_TREE1);
-			
-		hItem = TreeView_GetSelection(hwndTree);
-			
-		item.mask  = TVIF_PARAM | TVIF_HANDLE;
-		item.hItem = hItem;
-			
-		TreeView_GetItem(hwndTree, &item);
-		
-		FlashWindowBorder((HWND)item.lParam, TRUE);
+		if (spy_hCurWnd)
+		{
+			FlashWindowBorder(spy_hCurWnd, TRUE);
+		}
+		else
+		{
+			hwndTree = GetDlgItem(hwnd, IDC_TREE1);
+			hItem = TreeView_GetSelection(hwndTree);
+			if (hItem)
+			{
+				item.mask = TVIF_PARAM | TVIF_HANDLE;
+				item.hItem = hItem;
+				TreeView_GetItem(hwndTree, &item);
+				FlashWindowBorder((HWND)item.lParam, TRUE);
+			}
+		}
 		
 		return TRUE;
 		

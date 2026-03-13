@@ -31,7 +31,8 @@ extern DialogTab WinSpyTab[];
 #define CLASS_TAB          3
 #define WINDOW_TAB         4
 #define PROCESS_TAB	       5
-#define NUMTABCONTROLITEMS 6
+#define TREE_TAB           6
+#define NUMTABCONTROLITEMS 7
 
 //
 //	Simple style-lookup
@@ -82,6 +83,10 @@ typedef struct
 #define WINLIST_INCLUDE_HANDLE	1		// handle, classname
 #define WINLIST_INCLUDE_CLASS   2		// classname, caption
 #define WINLIST_INCLUDE_ALL		3		// handle, caption, classname
+
+#define MAX_VERBOSE_LEN 22
+#define MAX_CLASS_LEN   40
+#define MAX_WINTEXT_LEN 200
 
 //
 //	Useful functions!
@@ -137,6 +142,7 @@ LRESULT CALLBACK WindowDlgProc	 (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lPa
 LRESULT CALLBACK PropertyDlgProc (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK ProcessDlgProc	 (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK ClassDlgProc	 (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK TreeDlgProc	 (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 
 // Top-level
 void DisplayWindowInfo  (HWND hwnd);
@@ -148,6 +154,7 @@ void SetGeneralInfo		(HWND hwnd);
 void SetScrollbarInfo	(HWND hwnd);
 void SetPropertyInfo	(HWND hwnd);
 void SetProcessInfo		(HWND hwnd);
+void SetTreeInfo		(HWND hwnd);
 
 void ExitWinSpy			(HWND hwnd, UINT uCode);
 
@@ -171,6 +178,8 @@ BOOL GetRemoteWindowInfo(HWND hwnd, WNDCLASSEX *pClass,
 BOOL RemoveTabCtrlFlicker(HWND hwndTab);
 
 void VerboseClassName(TCHAR ach[]);
+
+int FormatWindowText(HWND hwnd, TCHAR szTotal[]);
 
 void RefreshTreeView(HWND hwndTree);
 void InitGlobalWindowTree(HWND hwnd);

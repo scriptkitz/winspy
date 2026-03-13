@@ -36,6 +36,9 @@
     <ClCompile Include="DisplayStyleInfo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DisplayTreeInfo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="DisplayWindowInfo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
